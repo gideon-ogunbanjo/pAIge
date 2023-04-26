@@ -4,7 +4,7 @@ from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
-A Simple Machine Learning Web Application
+Iris Classification Model
 """)
 
 
