@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
-st.write("""
-Iris Classification Model
+st.title("""
+pAIge - Iris Classification Model
 """)
 
 
@@ -32,9 +32,10 @@ clf = RandomForestClassifier()
 clf.fit(X, Y)
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
-st.subheader('Labels of Class and their respective index number')
+st.subheader('Labels of Class and their respective index numbers')
 st.write(iris.target_names)
 st.subheader('Prediction')
 st.write(iris.target_names[prediction])
 st.subheader('Prediction Probability')
-st.write(prediction_proba)    
+st.write(prediction_proba)
+st.markdown("Created by Gideon Ogunbanjo")    
