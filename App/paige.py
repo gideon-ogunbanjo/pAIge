@@ -3,6 +3,12 @@ import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
+# Page configuration
+st.set_page_config(
+    page_title="pAIge",
+    layout="centered",
+    initial_sidebar_state="collapsed"
+)
 st.title("pAIge - Iris Classification Model")
 
 st.sidebar.header('Input Parameters')
@@ -35,7 +41,7 @@ prediction_proba = clf.predict_proba(df.values)  # Convert DataFrame to NumPy ar
 st.subheader('Labels of Class and their respective index numbers')
 st.write(iris.target_names)
 
-st.subheader('Iris Flower Prediction')
+st.subheader('Predicted Iris Flower')
 st.write(iris.target_names[prediction])
 
 st.subheader('Prediction Probability')
