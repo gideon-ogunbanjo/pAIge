@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
 # Streamlit app title
-st.title("pAIge - Iris Classification Model: ")
+st.title("pAIge - Iris Classification Model")
 
 # Sidebar for user input
-st.sidebar.header('Input Parameters: ')
+st.sidebar.header('Input Parameters')
 st.sidebar.write("Adjust the sliders to set the values for the parameters of the iris flower.")
 def user_input_features():
     sepal_length = st.sidebar.slider('Sepal length (Cm)', 4.3, 7.9, 5.4)
@@ -23,7 +25,7 @@ def user_input_features():
 
 # Gets user input and display it
 df = user_input_features()
-st.subheader('Inputed parameters: ')
+st.subheader('Inputed parameters')
 st.write(df)
 
 # Load Iris dataset
@@ -40,16 +42,19 @@ prediction = clf.predict(df.values)  # Converts DataFrame to NumPy array using .
 prediction_proba = clf.predict_proba(df.values)  # Converts DataFrame to NumPy array using .values
 
 # Displays the class labels and their respective index numbers
-st.subheader('Labels of Class and their respective index numbers: ')
+st.subheader('Labels of Class and their respective index numbers')
 st.write(iris.target_names)
 
-# Displays the predicted iris flower species
-st.subheader('Predicted Iris Flower: ')
+# Displays the predicted iris flower species and confidence level
+st.subheader('Predicted Iris Flower')
+predicted_species = iris.target_names[prediction][0]
+confidence = max(prediction_proba[0]) * 100
 st.write(iris.target_names[prediction])
 
-# Displays the prediction probabilities for each class
-st.subheader('Prediction Probability: ')
-st.write(prediction_proba)
+# Visualization of Predicted Probabilities
+st.subheader('Predicted Probabilities for Each Class')
+proba_df = pd.DataFrame(prediction_proba, columns=iris.target_names)
+st.bar_chart(proba_df)
 
 # Footer with link
 link = 'Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
