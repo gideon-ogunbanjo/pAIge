@@ -3,10 +3,7 @@ import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
-st.title("""
-pAIge - Iris Classification Model
-""")
-
+st.title("pAIge - Iris Classification Model")
 
 st.sidebar.header('Input Parameters')
 def user_input_features():
@@ -21,21 +18,27 @@ def user_input_features():
     features = pd.DataFrame(data, index=[0])
     return features
 
-
 df = user_input_features()
-st.subheader('User Input parameters')
+st.subheader('Inputed parameters')
 st.write(df)
+
 iris = datasets.load_iris()
 X = iris.data
 Y = iris.target
+
 clf = RandomForestClassifier()
 clf.fit(X, Y)
-prediction = clf.predict(df)
-prediction_proba = clf.predict_proba(df)
+
+prediction = clf.predict(df.values)  # Convert DataFrame to NumPy array using .values
+prediction_proba = clf.predict_proba(df.values)  # Convert DataFrame to NumPy array using .values
+
 st.subheader('Labels of Class and their respective index numbers')
 st.write(iris.target_names)
-st.subheader('Prediction')
+
+st.subheader('Iris Flower Prediction')
 st.write(iris.target_names[prediction])
+
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
-st.markdown("Created by Gideon Ogunbanjo")    
+
+st.markdown("Created by Gideon Ogunbanjo")
