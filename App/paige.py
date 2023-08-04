@@ -25,7 +25,7 @@ def user_input_features():
     return features
 
 df = user_input_features()
-st.subheader('Inputed parameters')
+st.subheader('Inputed parameters: ')
 st.write(df)
 
 iris = datasets.load_iris()
@@ -38,13 +38,13 @@ clf.fit(X, Y)
 prediction = clf.predict(df.values)  # Convert DataFrame to NumPy array using .values
 prediction_proba = clf.predict_proba(df.values)  # Convert DataFrame to NumPy array using .values
 
-st.subheader('Labels of Class and their respective index numbers')
+st.subheader('Labels of Class and their respective index numbers: ')
 st.write(iris.target_names)
 
-st.subheader('Predicted Iris Flower')
+st.subheader('Predicted Iris Flower: ')
 st.write(iris.target_names[prediction])
 
-st.subheader('Prediction Probability')
+st.subheader('Prediction Probability: ')
 st.write(prediction_proba)
 
 st.markdown("Created by Gideon Ogunbanjo")
