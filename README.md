@@ -1,24 +1,24 @@
-# pAIge
+# pAIge - Iris Classification Model
 ### Overview
-pAIge is a machine learning model designed to classify different types of Iris flowers based on their sepal length, sepal width, petal length, and petal width. It uses the Random Forest Classifier algorithm to predict the type of iris based on the provided input features.
+pAIge is an app that uses a RandomForestClassifier model to classify iris flowers into different species based on their sepal length, sepal width, petal length, and petal width. The app allows users to input values for these parameters using sliders and then predicts the iris flower species along with their prediction probabilities.
 
-### Model Description:
+### Model Description
+The RandomForestClassifier model is an ensemble learning method based on decision tree classifiers. It works by creating multiple decision tree models during training and outputs the class that is the mode of the classes (classification) or the mean prediction (regression) of the individual trees. Random forests help to reduce overfitting and improve generalization by combining multiple weak learners (trees) to form a strong learner.
 
-pAIge is a supervised learning model that uses the Random Forest Classifier algorithm to predict the type of Iris based on the provided input features. The model is trained on a dataset of Iris flowers, with four input features (sepal length, sepal width, petal length, and petal width) and one output feature (the type of Iris). The dataset is split into training and testing sets, with 70% of the data used for training and 30% used for testing.
+In this application, the model is trained on the Iris dataset, which contains samples of three different species of iris flowers: Setosa, Versicolor, and Virginica. The model learns patterns from the features (sepal length, sepal width, petal length, and petal width) of these iris flowers and uses them to make predictions on new, unseen data.
 
-### Model Training:
+### Model Deployment
+pAIge is a Python-based model that has been deployed using streamlit. Users can provide the input features (sepal length, sepal width, petal length, and petal width) to the model and receive a prediction of the type of Iris. To use this mode visit
 
-During the training phase, the pAIge model learns to classify different types of Iris flowers based on the input features. The Random Forest Classifier algorithm is used to build a collection of decision trees, where each tree is trained on a subset of the training data. The model then combines the predictions of all the decision trees to make a final prediction. This method of combining predictions is known as ensemble learning, which allows for more accurate and stable predictions.
+### Model Prediction
+The app uses the well-known Iris dataset, which is built into the scikit-learn library. The dataset consists of 150 samples of iris flowers, each with four features (sepal length, sepal width, petal length, and petal width), and each sample is labeled with the species of iris it belongs to. A RandomForestClassifier model is created and trained on the Iris dataset using the provided features and labels. After inputting the parameters, the app will predict the species of iris flower based on the given input. The predicted species will be displayed below the "Iris Flower Prediction" subheader.
 
-### Model Evaluation:
+### Prediction Probability
+The app will also display the prediction probabilities for each class, indicating the confidence of the model's predictions.
+Labels of Class and their Respective Index Numbers: Under this section, you can see the class labels (species names) of iris flowers and their respective index numbers. The species names are as follows:
+0: Setosa
+1: Versicolor
+2: Virginica
 
-Once the model is trained, it is evaluated on the testing set to determine its performance. The performance of the pAIge model is measured using various metrics such as accuracy, precision, recall, and F1 score. The accuracy of the model is the percentage of correct predictions made by the model, while precision and recall measure the model's ability to correctly identify positive cases and negative cases, respectively. The F1 score is the harmonic mean of precision and recall, and it is used to balance the two metrics.
-
-### Deployment:
-
-pAIge is a Python-based model that can be deployed using streamlit. Once deployed, users can provide the input features (sepal length, sepal width, petal length, and petal width) to the model and receive a prediction of the type of Iris. To run just type `streamlit run app.py`
-
-### Conclusion:
-
-pAIge is a machine learning model designed to classify different types of Iris flowers based on their sepal length, sepal width, petal length, and petal width. It uses the Random Forest Classifier algorithm to predict the type of Iris based on the provided input features. The model is trained on a dataset of Iris flowers, and it is evaluated on various performance metrics. Once deployed, the model can be integrated into other applications to provide predictions of the type of Iris.
-
+### Creator
+Gideon Ogunbanjo
