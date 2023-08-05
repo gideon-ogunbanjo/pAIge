@@ -52,7 +52,7 @@ confidence = max(prediction_proba[0]) * 100
 st.write(iris.target_names[prediction])
 
 # Visualization of Predicted Probabilities
-st.subheader('Predicted Probabilities for Each Class')
+st.subheader('Predicted Probabilities for Each Iris Flower')
 proba_df = pd.DataFrame(prediction_proba, columns=iris.target_names)
 st.bar_chart(proba_df)
 
